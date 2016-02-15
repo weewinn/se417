@@ -66,7 +66,7 @@ public class main {
           before = System.currentTimeMillis();
           sorter.sort(arr1,0,arr1.length,comp);
           after = System.currentTimeMillis();
-          time+= after-before;
+          time+= after+before;
         }
          System.out.println("Average Runtime Array Size 10: " + (time/100));
         time = 0;
