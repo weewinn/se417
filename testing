@@ -1,0 +1,215 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cs311.hw4;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Random;
+
+
+
+
+/**
+ *
+ * @author Quy
+ */
+
+public class main {
+   
+        public static Random r = new Random();
+        public static double before;
+        public static double after;
+        public static double time =0;
+        public static InsertionSort sorter = new InsertionSort();
+        public static IComparator comp = new IComparator();
+        public static Object[] arr1 = new Object[10];
+        public static Object[] arr2 = new Object[100];
+        public static Object[] arr3 = new Object[1000];
+        public static Object[] arr4 = new Object[10000];
+        public static Object[] arr5 = new Object[20000];
+        public static Object[] arr6 = new Object[40000];
+        
+
+     public static void randomBest(Object[] arr){
+         for (int i = 0; i < arr.length; i++) {
+            arr[i] = r.nextInt();
+            }
+         Arrays.sort(arr);
+     }
+    
+       public static void randomWorst(Object[] arr){
+           for (int i = 0; i < arr.length; i++) {
+            arr[i] = r.nextInt();
+            }
+           
+          Arrays.sort(arr, Collections.reverseOrder());
+     }
+     
+     public static void randomArr(Object[] arr){
+         
+         for (int i = 0; i < arr.length; i++) {
+            arr[i] = r.nextInt();
+            }
+     }
+   
+     
+     public static void avg_run(){
+         
+      
+         
+         for(int i =0; i <= 100; i++){
+          randomArr(arr1);
+          before = System.currentTimeMillis();
+          sorter.sort(arr1,0,arr1.length,comp);
+          after = System.currentTimeMillis();
+          time+= after-before;
+        }
+         System.out.println("Average Runtime Array Size 10: " + (time/100));
+        time = 0;
+     
+          for(int i =0; i <= 100; i++){
+          randomArr(arr2);
+          before = System.currentTimeMillis();
+          sorter.sort(arr2,0,arr2.length,comp);
+          after = System.currentTimeMillis();
+          time+= after-before;
+        }
+        System.out.println("Average Runtime Array Size 100: " + (time/100));
+        time = 0;
+        
+          for(int i =0; i <= 100; i++){
+          randomArr(arr3);
+          before = System.currentTimeMillis();
+          sorter.sort(arr3,0,arr3.length,comp);
+          after = System.currentTimeMillis();
+          time+= after-before;
+        }
+        System.out.println("Average Runtime Array Size 1000: " + (time/100));
+        time = 0;
+        
+          for(int i =0; i <= 100; i++){
+          randomArr(arr4);
+          before = System.currentTimeMillis();
+          sorter.sort(arr4,0,arr4.length,comp);
+          after = System.currentTimeMillis();
+          time+= after-before;
+        }
+        System.out.println("Average Runtime Array Size 10000: " + (time/100));
+        time = 0;
+        
+          for(int i =0; i <= 100; i++){
+          randomArr(arr5);
+          before = System.currentTimeMillis();
+          sorter.sort(arr5,0,arr5.length,comp);
+          after = System.currentTimeMillis();
+          time+= after-before;
+        }
+        System.out.println("Average Runtime Array Size 20000: " + (time/100));
+        time = 0;
+        
+        for(int i =0; i <= 100; i++){
+          randomArr(arr6);
+          before = System.currentTimeMillis();
+          sorter.sort(arr6,0,arr6.length,comp);
+          after = System.currentTimeMillis();
+          time+= after-before;
+        }
+        System.out.println("Average Runtime Array Size 40000: " + (time/100));
+        time = 0;
+     }
+     
+     public static void best_run(){
+         randomBest(arr1);
+         before = System.currentTimeMillis();
+         sorter.sort(arr1,0,arr1.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Best Runtime Array Size 10: " + (after - before));
+         
+         randomBest(arr2);
+         before = System.currentTimeMillis();
+         sorter.sort(arr2,0,arr2.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Best Runtime Array Size 100: " + (after - before));
+         
+         randomBest(arr3);
+         before = System.currentTimeMillis();
+         sorter.sort(arr3,0,arr3.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Best Runtime Array Size 1000: " + (after - before));
+         
+         randomBest(arr4);
+         before = System.currentTimeMillis();
+         sorter.sort(arr4,0,arr4.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Best Runtime Array Size 10000: " + (after - before));
+         
+         randomBest(arr5);
+         before = System.currentTimeMillis();
+         sorter.sort(arr5,0,arr5.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Best Runtime Array Size 20000: " + (after - before));
+         
+         randomBest(arr6);
+         before = System.currentTimeMillis();
+         sorter.sort(arr6,0,arr6.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Best Runtime Array Size 40000: " + (after - before));
+     }
+         
+      public static void worst_run(){
+         randomWorst(arr1);
+         before = System.currentTimeMillis();
+         sorter.sort(arr1,0,arr1.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Worst Runtime Array Size 10: " + (after - before));
+         
+         randomWorst(arr2);
+         before = System.currentTimeMillis();
+         sorter.sort(arr2,0,arr2.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Worst Runtime Array Size 100: " + (after - before));
+         
+         randomWorst(arr3);
+         before = System.currentTimeMillis();
+         sorter.sort(arr3,0,arr3.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Worst Runtime Array Size 1000: " + (after - before));
+         
+         randomWorst(arr4);
+         before = System.currentTimeMillis();
+         sorter.sort(arr4,0,arr4.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Worst Runtime Array Size 10000: " + (after - before));
+         
+         randomWorst(arr5);
+         before = System.currentTimeMillis();
+         sorter.sort(arr5,0,arr5.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Worst Runtime Array Size 20000: " + (after - before));
+         
+         randomWorst(arr6);
+         before = System.currentTimeMillis();
+         sorter.sort(arr6,0,arr6.length,comp);
+         after = System.currentTimeMillis();
+         System.out.println("Worst Runtime Array Size 40000: " + (after - before));
+     }    
+     
+    public static void main(String[] args) {
+        System.out.println("Proof that InsertionSort works:");
+        Object[] test = new Object[10];
+        randomArr(test);
+        System.out.println("Before sorting: " +Arrays.asList(test));
+        sorter.sort(test, 0, test.length,comp);
+        System.out.println("After sorting: " +Arrays.asList(test));
+        System.out.println("\nRuntime:");
+        System.out.println("Due to size of arrays the sorting takes a good bite of time to run. Please be patient!");
+        best_run();
+        avg_run();
+        worst_run();       
+    }
+    
+}
